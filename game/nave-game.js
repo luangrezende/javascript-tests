@@ -1,3 +1,9 @@
+// DESCRIÇÂO:
+// Você deverá criar um codigo que receberá 3 valores: quantidadeCasas, posicaoAlien e posicaoNave.
+// O codigo consiste em calcular a quantidade de casas a NAVE terá que andar até atingir o ALIEN
+// Por exemplo: se voce colocou que tem 10 casas, que o ALIEN esta na casa 8 e a NAVE na casa 5
+// o resultado apresentado no console deverá ser 3
+
 function load() {
     var btn = document.getElementById("botaoCalcular");
 
