@@ -15,7 +15,6 @@ function somarDoisValores(){
 
 load();
 
-
 // EXEMPLO RETORNO
 var teste = somarValores(1, 2);
 
