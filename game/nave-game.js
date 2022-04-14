@@ -9,41 +9,41 @@ function load() {
 
     btn.addEventListener("click", function(){
         var quantidadeCasas = parseInt(document.getElementById("quantidadeCasas").value);
+        var posicaoAlien = parseInt(document.getElementById("posicaoAlien").value);
         var posicaoNave = parseInt(document.getElementById("posicaoNave").value);
-        var posicaoPiloto = parseInt(document.getElementById("posicaoPiloto").value);
 
-        if(!validarCampos(quantidadeCasas, posicaoNave, posicaoPiloto)){
+        if(!validarCampos(quantidadeCasas, posicaoAlien, posicaoNave)){
             return;
         }
 
-        var result = calcularQuantidadeJogadas(quantidadeCasas, posicaoNave, posicaoPiloto);
+        var result = calcularQuantidadeJogadas(quantidadeCasas, posicaoAlien, posicaoNave);
         alert(`O jogador vai precisar andar ${result} casas antes de atirar!`);
     }, false);
 };
 
-function calcularQuantidadeJogadas(quantidadeCasas, posicaoNave, posicaoPiloto) {
-    if(posicaoNave > posicaoPiloto){
-        return posicaoNave - posicaoPiloto;
+function calcularQuantidadeJogadas(quantidadeCasas, posicaoAlien, posicaoNave) {
+    if(posicaoAlien > posicaoNave){
+        return posicaoAlien - posicaoNave;
     }
-    else if(posicaoNave < posicaoPiloto){
-        var result = quantidadeCasas - posicaoPiloto;
-        return posicaoNave + result;
+    else if(posicaoAlien < posicaoNave){
+        var result = quantidadeCasas - posicaoNave;
+        return posicaoAlien + result;
     }
     else{
         return 0;
     }
 };
 
-function validarCampos(quantidadeCasas, posicaoNave, posicaoPiloto) {
+function validarCampos(quantidadeCasas, posicaoAlien, posicaoNave) {
     if(isNaN(quantidadeCasas)
-        || isNaN(posicaoNave)
-        || isNaN(posicaoPiloto)){
+        || isNaN(posicaoAlien)
+        || isNaN(posicaoNave)){
             alert(`Preencha todos os campos.`);
             return false;
     }
-    if(quantidadeCasas < posicaoNave 
-        || quantidadeCasas < posicaoPiloto){
-            alert(`A quantidade de casas deve ser superior a posicaoNave e posicaoPiloto.`);
+    if(quantidadeCasas < posicaoAlien 
+        || quantidadeCasas < posicaoNave){
+            alert(`A quantidade de casas deve ser superior a posicaoAlien e posicaoNave.`);
             return false;
     }
     return true;
